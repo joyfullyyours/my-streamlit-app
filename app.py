@@ -5,8 +5,8 @@ import numpy as np
 @st.cache_resource
 def load_model():
     from deepface import DeepFace
-    # Specify both task and model_name
-    return DeepFace.build_model(task="analyze", model_name="emotion")
+    # Using the specific 'attribute' task name
+    return DeepFace.build_model(task="attribute", model_name="emotion")
 
 # Call the function to store the model in memory
 emotion_model = load_model()
