@@ -2,12 +2,11 @@ import streamlit as st
 from PIL import Image
 import numpy as np
 
-
 @st.cache_resource
 def load_model():
     from deepface import DeepFace
-    # This "pre-loads" the emotion model into memory properly
-    return DeepFace.build_model("emotion")
+    # Specify both task and model_name
+    return DeepFace.build_model(task="analyze", model_name="emotion")
 
 # Call the function to store the model in memory
 emotion_model = load_model()
