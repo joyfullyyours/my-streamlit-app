@@ -7,7 +7,7 @@ import cv2
 @st.cache_resource
 def load_model():
     # This "pre-loads" the emotion model into memory properly
-    return DeepFace.build_model("Emotion")
+    return DeepFace.build_model("emotion")
 
 # Call the function to store the model in memory
 emotion_model = load_model()
