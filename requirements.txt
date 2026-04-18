@@ -1,6 +1,5 @@
 streamlit
 deepface
+tensorflow-cpu
 tf-keras
 opencv-python-headless
-tf-models-official
-
