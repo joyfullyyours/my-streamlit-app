@@ -3,6 +3,15 @@ from deepface import DeepFace
 from PIL import Image
 import numpy as np
 
+@st.cache_resource
+def load_model():
+    # This "pre-loads" the emotion model into memory properly
+    return DeepFace.build_model("Emotion")
+
+# Call the function to store the model in memory
+emotion_model = load_model()
+# -------------------
+
 st.set_page_config(page_title="MoodMirror AI", layout="centered")
 
 st.title("😊 MoodMirror AI")
@@ -44,7 +53,8 @@ if image:
             result = DeepFace.analyze(
                 img_array,
                 actions=['emotion'],
-                enforce_detection=False
+                enforce_detection=False,
+                models={'emotion':emotion_model} #Use the cached model
             )
 
             emotion = result[0]["dominant_emotion"]
