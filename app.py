@@ -2,6 +2,7 @@ import streamlit as st
 from deepface import DeepFace
 from PIL import Image
 import numpy as np
+import cv2
 
 @st.cache_resource
 def load_model():
