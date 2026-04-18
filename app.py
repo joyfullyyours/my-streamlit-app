@@ -1,16 +1,18 @@
 import streamlit as st
-from deepface import DeepFace
+
 from PIL import Image
 import numpy as np
 import cv2
 
 @st.cache_resource
 def load_model():
+    from deepface import DeepFace
     # This "pre-loads" the emotion model into memory properly
     return DeepFace.build_model("emotion")
 
 # Call the function to store the model in memory
 emotion_model = load_model()
+from deepface import DeepFace
 # -------------------
 
 st.set_page_config(page_title="MoodMirror AI", layout="centered")
