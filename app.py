@@ -6,7 +6,7 @@ import numpy as np
 def load_model():
     from deepface import DeepFace
     # Using the specific 'attribute' task name
-    return DeepFace.build_model(task="attribute", model_name="emotion")
+    return DeepFace.build_model(task="facial_attribute", model_name="emotion")
 
 # Call the function to store the model in memory
 emotion_model = load_model()
