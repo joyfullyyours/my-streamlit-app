@@ -2,17 +2,16 @@ import streamlit as st
 from PIL import Image
 import numpy as np
 
-# 1. THIS MUST BE THE FIRST STREAMLIT COMMAND
+# This MUST be the first Streamlit command
 st.set_page_config(page_title="MoodMirror AI", layout="centered")
 
 @st.cache_resource
 def load_model():
-    from deepface import DeepFace
-    # Using 'analyze' logic later is safer, but if you build here, 
-    # use the exact string the library expects for the task.
-    return DeepFace.build_model("Emotion")
+    # We return True just to show the cache is active
+    # DeepFace will build the model automatically during the first use
+    return True
 
-emotion_model = load_model()
+ready = load_model()
 
 st.title("Sense Your Emotions")
 
