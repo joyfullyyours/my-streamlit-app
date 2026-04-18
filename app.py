@@ -1,19 +1,25 @@
-import streamlit as st
-from PIL import Image
 import numpy as np
+from PIL import Image
 
-# This MUST be the first Streamlit command
-st.set_page_config(page_title="MoodMirror AI", layout="centered")
+uploaded_file = st.file_uploader("Choose an image...", type=["jpg", "jpeg", "png"])
 
-@st.cache_resource
-def load_model():
-    # We return True just to show the cache is active
-    # DeepFace will build the model automatically during the first use
-    return True
+if uploaded_file is not None:
+    # 1. Convert the uploaded file to a PIL Image
+    img = Image.open(uploaded_file)
+    
+    # 2. Convert PIL Image to a NumPy array (RGB)
+    img_array = np.array(img)
 
-ready = load_model()
-
-st.title("Sense Your Emotions")
+    try:
+        # 3. Pass the array directly to DeepFace
+        # We set enforce_detection=False so it doesn't crash if a face isn't perfectly clear
+        results = DeepFace.analyze(img_array, actions=['emotion'], enforce_detection=False)
+        
+        # Display results
+        st.write(f"Detected Emotion: {results[0]['dominant_emotion']}")
+        
+    except Exception as e:
+        st.error(f"Analysis failed: {e}")
 
 st.title("😊 MoodMirror AI")
 st.subheader("Real-Time Emotion Detection & Suggestions")
