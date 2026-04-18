@@ -2,20 +2,19 @@ import streamlit as st
 from PIL import Image
 import numpy as np
 
+# 1. THIS MUST BE THE FIRST STREAMLIT COMMAND
+st.set_page_config(page_title="MoodMirror AI", layout="centered")
+
 @st.cache_resource
 def load_model():
     from deepface import DeepFace
-    # Exactly 4 spaces of indentation here
+    # Using 'analyze' logic later is safer, but if you build here, 
+    # use the exact string the library expects for the task.
     return DeepFace.build_model("Emotion")
 
-# No spaces at the start of this line
 emotion_model = load_model()
 
 st.title("Sense Your Emotions")
-
-# -------------------
-
-st.set_page_config(page_title="MoodMirror AI", layout="centered")
 
 st.title("😊 MoodMirror AI")
 st.subheader("Real-Time Emotion Detection & Suggestions")
