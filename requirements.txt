@@ -1,7 +1,6 @@
 streamlit
-pandas
-numpy
-tensorflow-cpu
-opencv-python-headless
-pillow
 deepface
+tf-keras
+opencv-python-headless
+tf-models-official
+
