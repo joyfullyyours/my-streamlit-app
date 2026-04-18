@@ -5,11 +5,14 @@ import numpy as np
 @st.cache_resource
 def load_model():
     from deepface import DeepFace
-    # This line must be indented exactly the same as the line above it
+    # Exactly 4 spaces of indentation here
     return DeepFace.build_model("Emotion")
 
-# This line must have NO spaces at the beginning
+# No spaces at the start of this line
 emotion_model = load_model()
+
+st.title("Sense Your Emotions")
+
 # -------------------
 
 st.set_page_config(page_title="MoodMirror AI", layout="centered")
