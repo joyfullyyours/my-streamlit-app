@@ -5,11 +5,11 @@ import numpy as np
 @st.cache_resource
 def load_model():
     from deepface import DeepFace
-    # Using the specific 'attribute' task name
-   return DeepFace.build_model("emotion")
-# Call the function to store the model in memory
+    # This line must be indented exactly the same as the line above it
+    return DeepFace.build_model("Emotion")
+
+# This line must have NO spaces at the beginning
 emotion_model = load_model()
-from deepface import DeepFace
 # -------------------
 
 st.set_page_config(page_title="MoodMirror AI", layout="centered")
